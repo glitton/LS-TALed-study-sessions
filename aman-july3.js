@@ -11,7 +11,22 @@ changeStatus();
 console.log(status); // "Online"
 
 /*
+When the changeStatus function is invoked without an argument on line 10,  
+JavaScripts goes into the function's body defined on lines 6 and 57. It declares 
+and initializes a local variable status that is different from the global status 
+variable declared in line 1.  Because the function invocation doesn't have an argument, 
+JavaScript initializes status to undefined.  Further, this local variable status 
+shadows or blocks the global status variable declared on line 1.   
+In line 6, the function reassigns status from undefined to Offline and then returns it.
 
+On line 11, when logging status to the console, this method has access only to 
+the globally scoped status variable declared on line 1, thus the output is 
+the string Online.
+
+The concept that this code demonstrates is shadowing and variable scope.  
+Inner scoped variables with the same name as the outer scope, shadows or blocks 
+the outer scope variable.  Functions and methods such as changeStatus and 
+console.log have access to outer or globally scoped variables. 
 */
 
 // Explain why the `printName` function invocation logs the string "Emma"
@@ -48,6 +63,19 @@ function mutater(list) {
 
 mutater(cities);
 // console.log(cities);
+
+/*
+The code outputs the array ["Tokyo", "Berlin", "Rio"].
+
+When the mutator function is invoked with the cities array passed by reference,
+The function initializes a list variable which at this time, references the same 
+array as the cities global variable declared on line 2.
+However, the function reassigns list to another array, ["Banana", "Pineapple", "Apple"],
+mutates the 2nd index with the string "Denver" and returns it.
+
+At this point, list and cities point to two different arrays which is why logging
+cities to the console results in the cities array ["Tokyo", "Berlin", "Rio"].
+*/
 
 // Explain why firstName contains the string "Aman"
 // while the lastName contains the string "Shinwari"? - Mohammed

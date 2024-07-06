@@ -80,19 +80,3 @@ updateAge(person);
 // Variables: person, updateAge, obj
 //Primitives: 'Alice', 30, 'Alice', 31, name, age (in person), name, age in obj
 //Objects: person, obj, function updateAge
-
-function capitalize() {
-  return word[0].toUpperCase() + word.slice(1);
-}
-
-function exclaim() {
-  return (word += "!!!");
-}
-
-let word = "hello";
-let capitalizedWord = capitalize(word);
-let exclaimedWord = exclaim(capitalizedWord);
-
-// console.log(word);
-// console.log(capitalizedWord);
-// console.log(exclaimedWord);
