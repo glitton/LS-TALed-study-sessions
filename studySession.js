@@ -10,7 +10,7 @@ function modifyArray(arr) {
 }
 
 modifyArray(numbers); //function is invoked and now modifies the numbers array
-// console.log(numbers); // this outputs the numbers array with the value 4 added at the end
+console.log(numbers);
 
 // Examine the following code snippet. What will be logged to the console, and why?
 // Highlight the use of logical operators and conditional execution in JavaScript. -- Mohamed
@@ -168,4 +168,4 @@ let arr = [
 ];
 arr[1][3] = 606;
 
-console.log(arr);
+// console.log(arr);
