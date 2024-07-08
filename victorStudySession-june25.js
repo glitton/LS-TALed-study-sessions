@@ -10,7 +10,7 @@ function double(num) {
 }
 
 let myNumber = 5;
-let result = double(increment(myNumber));
+// let result = double(increment(myNumber));
 
 // console.log(result);
 // console.log(myNumber);
@@ -76,9 +76,9 @@ array2 as arr2 was reassigned to a new array.
 
 // What will be logged to the console and why? What concepts are demonstrated? -- Mohamed
 
-const a = 0;
-const b = "0";
-const c = "";
+// const a = 0;
+// const b = "0";
+// const c = "";
 
 // console.log(a || b); // 0 the number OR returns true when one is true
 // console.log(b && c); // '' empty string returns true when both are true
@@ -87,7 +87,38 @@ const c = "";
 
 // functions return a value, expressions evaluate to a value
 
-console.log(a || b);
-console.log(b && c);
-console.log(a && b);
-console.log(typeof b);
+// console.log(a || b);
+// console.log(b && c);
+// console.log(a && b);
+// console.log(typeof b);
+
+// const a = 0;
+// const b = 5;
+
+// const result = a && b;
+
+// console.log(result); //0
+
+const a = null;
+const b = "Hello";
+
+const result = a || b; //Hello
+// console.log(result);
+
+const userAge = undefined;
+const defaultAge = 30;
+
+const age = userAge || defaultAge;
+// console.log(age); //30
+
+const isAdmin = true;
+
+isAdmin && console.log("Access granted"); //Access granted
+
+const isOnline = false;
+const goOnline = () => console.log("Going online...");
+const stayOffline = () => console.log("Staying offline...");
+
+const action = (isOnline && goOnline) || stayOffline();
+
+//Staying offline ...
