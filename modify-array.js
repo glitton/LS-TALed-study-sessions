@@ -13,16 +13,24 @@ modifyArray(numbers);
 console.log(numbers);
 
 /*
-The code outputs an array [1, 2, 3, 4]
+The code outputs an array [1, 2, 3, 4].
 
-When the modifyArray function is invoked passing it the numbers array as a reference,
-The function parameter arr points to the numbers array.  At this point, both numbers and arr
-reference the same array.  In line 7, arr is modified by adding an new element, 4.  
-At this point, both arr and numbers have this new element and the array looks like
-[1, 2, 3, 4]
+When the modifyArray function is invoked passing it the numbers array argument 
+by reference, JavaScript initializes the modifyArray function parameter arr as 
+a variable.  At this point, arr references the same numbers array resulting 
+in both variables numbers and arr pointing to the array [1, 2, 3].
 
-In line 8, arr is reassigned a different array, [5, 6, 7].  At this point, arr 
-is referencing a different array than numbers. Applying the push method to arr doesn't
-affect the value of the numbers array.   This is why when logging numbers 
-to the console, the output is [1, 2, 3, 4].
+In the function, arr is mutated using the push method adding an element, 4, 
+which affects the numbers array as well. At this point, both variables, arr and 
+numbers reference the array with a value of [1, 2, 3, 4].
+
+In line 8, arr is reassigned a different array, [5, 6, 7] thus arr and numbers 
+are now referencing two different arrays.  Applying the push method to arr doesn't
+affect the numbers array. This is why when logging numbers to the console, 
+the output is [1, 2, 3, 4].
+
+The code demonstrates that arrays are passed by reference and when the operation 
+within a function mutates its argument, the original object (arrays are objects) 
+is affected.  In addition, when the function re-assigns its argument, 
+the original object is not affected.
 */
