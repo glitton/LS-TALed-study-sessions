@@ -43,7 +43,7 @@ the console logs the string hello.
 
 // ## What will be logged to the console? What concept does the code demonstrate? -- Mohamed
 
-greeter();
+// greeter();
 // greetiest();
 
 function greeter() {
