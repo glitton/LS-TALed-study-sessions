@@ -117,14 +117,14 @@ changes the key-value pair and not the primitive value itself.
 
 */
 
-let status = "offline";
-let mode = status === "offline" || "online";
+// let status = "offline";
+// let mode = status === "offline" || "online";
 
-if (mode === "online") {
-  console.log("System is online");
-} else {
-  console.log("System is offline");
-}
+// if (mode === "online") {
+//   console.log("System is online");
+// } else {
+//   console.log("System is offline");
+// }
 
 /*
 The output is "System is online"
@@ -137,4 +137,26 @@ assigned to online, mode will be assigned the string "online".
 
 As a result, the if condition will be true for mode === "online" and logs
 "System is online".
+*/
+
+greeter();
+
+function greeter() {
+  const hello = "Hello";
+  const world = "World";
+
+  function greetiest() {
+    console.log(world);
+  }
+
+  console.log(hello);
+  greetiest();
+}
+
+/*
+The console outputs a ReferenceError: greetiest is not defined.  This error
+is due to an issue with scope.  Since the greetiest function is nested inside
+of the greeter function, it can't be invoked outside of it.
+The only way to invoke it is by moving its invocation inside the greeter function 
+as it will then be in scope.  
 */
