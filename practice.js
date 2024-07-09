@@ -140,6 +140,7 @@ As a result, the if condition will be true for mode === "online" and logs
 */
 
 greeter();
+greetiest();
 
 function greeter() {
   const hello = "Hello";
@@ -150,13 +151,14 @@ function greeter() {
   }
 
   console.log(hello);
-  greetiest();
 }
 
 /*
 The console outputs a ReferenceError: greetiest is not defined.  This error
-is due to an issue with scope.  Since the greetiest function is nested inside
-of the greeter function, it can't be invoked outside of it.
-The only way to invoke it is by moving its invocation inside the greeter function 
-as it will then be in scope.  
+is due to an issue with scope.  The greetiest function is inner scoped as it 
+is nested inside of the greeter function, thus it can't be accessed in the outer 
+scope which is where the function invocation of greetiest was called.  
+The only way to invoke the greetiest function is by moving its invocation 
+inside the greeter function's block (between it's curly braces) making it 
+in scope.  
 */
