@@ -28,10 +28,10 @@ logs the string hello.  Another function greet with a parameter greeting
 references an object which then gets invoked in the body of the function.  
 
 In line 13, when greet is invoked with the hello argument, this argument
-references the same hello function object meaning it can be invoked and 
-logs the string hello.   
+references the same hello function object thus it can be invoked  
+logging the string hello.   
 
-Snippet 2 demonstrates the concept of functions as object that can be
+Snippet 2 demonstrates the concept of functions as objects that can be
 assigned to variables which are pointers.  
 
 A function hello is declared without any parameters which logs the string hello.
