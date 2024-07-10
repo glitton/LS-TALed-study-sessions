@@ -36,7 +36,7 @@ test();
 // outer();
 
 // console.log(b);
-//once outer() executes
+//once outer() executes, the variable b becomes available in the global scope
 // What’s the output of the last 2 lines? What concept does the code demonstrate?
 
 function increment(num) {
