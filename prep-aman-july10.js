@@ -38,3 +38,34 @@ if (truthiness) {
 } else {
   console.log("It's a falsy value! ");
 }
+
+// let name = "Sorim";
+
+// function upper(param) {
+//   param.toUpperCase();
+// }
+
+// upper(name);
+// console.log(name); //
+
+/*
+Any operations on primitives returns a new value, doesn't affect the original
+value. Primitive values are immutable.  When primitives are passed to functions,
+they are passed-by-value or a copy is passed.  
+*/
+
+let name = ["Sorim"];
+
+function upper(param) {
+  let deleted = param.pop();
+  console.log(param);
+}
+
+upper(name);
+console.log(name); //
+
+/*
+The array referenced by both the variables is mutated, thus line 65, console.log of name
+returns an empty array.
+
+*/
