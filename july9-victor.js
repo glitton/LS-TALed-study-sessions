@@ -1,0 +1,83 @@
+// Will the code run without errors? Why or why not?
+
+let a = 10;
+
+function outer() {
+  let b = 20;
+
+  function inner() {
+    a = 30;
+    let c = 40;
+    console.log(a, b, c);
+  }
+
+  // console.log(a, b);
+  return inner;
+}
+
+let test = outer();
+test();
+
+// What’s the output of the last 2 lines? What concept does the code demonstrate?
+
+function increment(num) {
+  return num + 1;
+}
+
+function double(num) {
+  return num * 2;
+}
+
+let myNumber = 5;
+let result = double(increment(myNumber));
+
+// console.log(result);
+// console.log(myNumber);
+
+// What the does the last line log? Explain how you arrived at your answer. -- Generosa
+let conditionA = false;
+let conditionB = true;
+let log = [];
+
+function checkConditionA() {
+  log.push("Condition A checked");
+  return conditionA;
+}
+
+function checkConditionB() {
+  log.push("Condition B checked");
+  return conditionB;
+}
+
+if (checkConditionA() || (checkConditionB() && !checkConditionA())) {
+  log.push("Inside if block");
+} else {
+  log.push("Inside else block");
+}
+
+console.log(log);
+
+/*
+The last line logs [
+  'Condition A checked',
+  'Condition B checked',
+  'Condition A checked',
+  'Inside if block'
+]
+
+Three variables are declared, conditionA which is assigned to false,  conditionB
+which is assigned to true, and log which is assigned to an empty array.  
+
+The if/else statement uses an OR statement to evaluate the checkCondition() invocation 
+and the evaluation of an AND statement for checkConditionB and not checkConditionA.
+
+The OR statement evaluates to true when one of the sub-expressions is true while the AND 
+statement evaluates to false when one of the sub-expressions evaluate to true.
+
+In this case checkconditionA() evaluates to false and continues on to the OR statement checks the right-hand
+sub-expressions which evaluaties checkConditionB and not CheckconditionA which both
+evaluate to true.  The overall OR condition then invokes the right-hand sub-expression
+
+
+
+*/
