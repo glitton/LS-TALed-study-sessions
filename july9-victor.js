@@ -11,7 +11,7 @@ function outer() {
     console.log(a, b, c);
   }
 
-  // console.log(a, b);
+  console.log(a, b);
   return inner;
 }
 
@@ -74,7 +74,7 @@ if (checkConditionA() || (checkConditionB() && !checkConditionA())) {
   log.push("Inside else block");
 }
 
-console.log(log);
+// console.log(log);
 
 /*
 The last line logs [
@@ -87,15 +87,30 @@ The last line logs [
 Three variables are declared, conditionA which is assigned to false,  conditionB
 which is assigned to true, and log which is assigned to an empty array.  
 
-The if/else statement uses la ogical OR statement to evaluate the return value of 
-invoking checkConditionA.   an AND statement for checkConditionB and not checkConditionA.
+The if/else statement uses a logical OR statement to evaluate the return value of 
+invoking checkConditionA and the return values of invoking checkConditionB() 
+with a logical AND with NOT checkConditionA().
 
-The OR statement evaluates to true when one of the sub-expressions is true while the AND 
-statement evaluates to false when one of the sub-expressions evaluate to true.
+Invoking checkConditionA results in adding the string "Condition A checked" to the 
+log array and its return value is false thus the OR operator continues checking
+the right-hand sub-expression.  This sub-expression evaluates the return
+values of invoking checkConditionB() and NOT checkConditionA which both return true.
+The invocations add the strings "Condition B checked" and "Condition A checked" to the log
+array.  At this time, the log array contains the elements
 
-In this case checkconditionA() evaluates to false and continues on to the OR statement checks the right-hand
-sub-expressions which evaluates checkConditionB and not checkConditionA which both
-evaluate to true.  The overall OR condition then invokes the right-hand sub-expression
+ 'Condition A checked',
+  'Condition B checked',
+  'Condition A checked',
+
+  The overall if statements is truthy thus it proceeds to pushing the string 'Inside if block'
+  to the log array.  
+
+Logging the log array results in the output of [
+  'Condition A checked',
+  'Condition B checked',
+  'Condition A checked',
+  'Inside if block'
+]
 
 Evaluating an expression, invoking a function and using the return value.  
 
