@@ -15,9 +15,28 @@ function outer() {
   return inner;
 }
 
-let test = outer();
+let test = outer(); // this is assigned to the return value of the outer function
 test();
 
+// let a = 10;
+
+// function outer() {
+//   b = 20;
+
+//   function inner() {
+//     a = 30;
+//     let c = 40;
+//     console.log(a, b, c);
+//   }
+
+//   console.log(a, b);
+//   return inner;
+// }
+
+// outer();
+
+// console.log(b);
+//once outer() executes
 // What’s the output of the last 2 lines? What concept does the code demonstrate?
 
 function increment(num) {
@@ -68,16 +87,17 @@ The last line logs [
 Three variables are declared, conditionA which is assigned to false,  conditionB
 which is assigned to true, and log which is assigned to an empty array.  
 
-The if/else statement uses an OR statement to evaluate the checkCondition() invocation 
-and the evaluation of an AND statement for checkConditionB and not checkConditionA.
+The if/else statement uses la ogical OR statement to evaluate the return value of 
+invoking checkConditionA.   an AND statement for checkConditionB and not checkConditionA.
 
 The OR statement evaluates to true when one of the sub-expressions is true while the AND 
 statement evaluates to false when one of the sub-expressions evaluate to true.
 
 In this case checkconditionA() evaluates to false and continues on to the OR statement checks the right-hand
-sub-expressions which evaluaties checkConditionB and not CheckconditionA which both
+sub-expressions which evaluates checkConditionB and not checkConditionA which both
 evaluate to true.  The overall OR condition then invokes the right-hand sub-expression
 
+Evaluating an expression, invoking a function and using the return value.  
 
 
 */
