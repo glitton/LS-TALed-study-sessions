@@ -72,15 +72,15 @@ array index is an odd integer thus it is added to the odds array.
 The function then returns an array with evens and odds as sub-arrays.  
 */
 
-let num = [];
+// let num = [];
 
-function myFunc(num) {
-  num += 2;
-  return num;
-}
+// function myFunc(num) {
+//   num += 2;
+//   return num;
+// }
 
-myFunc(num);
-console.log(num);
+// myFunc(num);
+// console.log(num);
 
 /*
 The output is an empty array.
@@ -89,3 +89,21 @@ A global variable num is declared an assigned to an empty array.
 
 When myFunc is invoked passing the argument num by reference, the function concatenates 2 to num which is an array.  The `+=` operator with an array and number converts the number to a string and concatenates it with the array.  The function then returns the string num, a primitive value with its own memory address which is locally scoped to the function and therefore doesn't affect the global num variable.   As a result, logging num to the console outputs `[]`
 */
+
+// let arr = [];
+
+// function addTwo(num) {
+//   num += 2;
+//   return num;
+// }
+
+// console.log(addTwo(arr));
+// console.log(arr);
+
+function myFunc(num) {
+  num += 2;
+  return num;
+}
+
+myFunc(2);
+console.log(myFunc(2));
