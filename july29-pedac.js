@@ -76,7 +76,7 @@ function isPangram(string) {
 
   for (let idx = 0; idx < alphabet.length; idx++) {
     let currentLetter = alphabet[idx];
-    console.log(alphabet[idx]);
+    // console.log(alphabet[idx]);
     if (!lowerCaseString.includes(currentLetter)) return false;
   }
   return true;
