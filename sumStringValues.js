@@ -40,6 +40,39 @@ Main function:
 
 */
 
+//LONG VERSION without get firstNumber and getLastNumber HELPER FUNCTIONS
+
+// function sumStringValues(array) {
+//   let firstNum = [];
+//   let lastNum = [];
+
+//   // get the firstNum and lastNum
+//   for (let str of array) {
+//     // for (let char of str) {
+//     //   if (char.match(/\d/g)) {
+//     //     firstNum.push(char);
+//     //     break;
+//     //   }
+//     // }
+//     firstNum = getFirstNumber(str);
+//     // for (let idx = str.length - 1; idx > -1; idx -= 1) {
+//     //   if (str[idx].match(/\d/g)) {
+//     //     lastNum.push(str[idx]);
+//     //     break;
+//     //   }
+//     // }
+//     lastNum = getLastNumber(str);
+//   }
+
+//   //Combine firstNum and lastNum, add them all together
+//   return twoNumbers(firstNum, lastNum).reduce(
+//     (sum, num) => Number(sum) + Number(num)
+//   );
+// }
+
+//USE HELPER FUNCTIONS
+
+//get first number helper function
 function getFirstNumber(string) {
   let arr1 = [];
   for (let char of string) {
@@ -48,10 +81,10 @@ function getFirstNumber(string) {
       break;
     }
   }
-  console.log("help", arr1);
   return arr1;
 }
 
+//get last number helper function
 function getLastNumber(string) {
   let arr2 = [];
   for (let idx = string.length - 1; idx > -1; idx -= 1) {
@@ -63,34 +96,7 @@ function getLastNumber(string) {
   return arr2;
 }
 
-function sumStringValues(array) {
-  let firstNum = [];
-  let lastNum = [];
-
-  // get the firstNum and lastNum
-  for (let str of array) {
-    for (let char of str) {
-      if (char.match(/\d/g)) {
-        firstNum.push(char);
-        break;
-      }
-    }
-
-    for (let idx = str.length - 1; idx > -1; idx -= 1) {
-      if (str[idx].match(/\d/g)) {
-        lastNum.push(str[idx]);
-        break;
-      }
-    }
-  }
-  // console.log(firstNum);
-  //Combine firstNum and lastNum, add them all together
-  return twoNumbers(firstNum, lastNum).reduce(
-    (sum, num) => Number(sum) + Number(num)
-  );
-}
-
-//Helper function
+//Concatenate two digits Helper function
 function twoNumbers(arr1, arr2) {
   let sumArray = [];
 
@@ -98,6 +104,23 @@ function twoNumbers(arr1, arr2) {
     sumArray.push(arr1[idx] + arr2[idx]);
   }
   return sumArray;
+}
+
+//MAIN FUNCTION
+function sumStringValues(array) {
+  let firstNum = [];
+  let lastNum = [];
+
+  // get the firstNum and lastNum
+  for (let str of array) {
+    firstNum = getFirstNumber(str);
+    lastNum = getLastNumber(str);
+  }
+
+  //Combine firstNum and lastNum, add them all together
+  return twoNumbers(firstNum, lastNum).reduce(
+    (sum, num) => Number(sum) + Number(num)
+  );
 }
 
 console.log(
