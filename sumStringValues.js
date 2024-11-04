@@ -113,8 +113,8 @@ function sumStringValues(array) {
 
   // get the firstNum and lastNum
   for (let str of array) {
-    firstNum = getFirstNumber(str);
-    lastNum = getLastNumber(str);
+    firstNum += getFirstNumber(str);
+    lastNum += getLastNumber(str);
   }
 
   //Combine firstNum and lastNum, add them all together
