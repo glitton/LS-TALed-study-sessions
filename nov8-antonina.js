@@ -6,11 +6,11 @@ function anyNegatives(arr) {
 
 let numbers = [1, 2, 3, -5, 4];
 
-if (anyNegatives(numbers)) {
-  console.log("The array contains at least one negative number!");
-} else {
-  console.log("The array contains no negatives!");
-}
+// if (anyNegatives(numbers)) {
+//   console.log("The array contains at least one negative number!");
+// } else {
+//   console.log("The array contains no negatives!");
+// }
 
 //forEach returns undefined and it is a falsey value, the callback returns true but the method returns false.  Better to use filter or better to use the some method
 
@@ -22,16 +22,16 @@ let pets = {
 
 function incrementAge(animals) {
   return Object.values(animals).map((animal) => {
-    animal.age += 1;
+    return (animal.age += 1);
   });
 }
 
-function foo() {
-  console.log("foo");
-}
+// function foo() {
+//   // console.log("foo");
+// }
 
-console.log(incrementAge(pets));
-console.log(pets);
+// console.log(incrementAge(pets));
+// console.log(pets);
 
 // undefined is returned implicitly
 // map performs transformation, map uses the return value of the callback, transformed to a new array that contains undefined values
