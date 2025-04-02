@@ -196,3 +196,54 @@ function decoder(sentence, n) {
 
   return result;
 }
+
+/*
+P: Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+input: string
+output: string where each word has its first letter moved to the end and with 'ay' appended to it
+rules:
+- move first letter, do not change the case
+- add ay to the moved letter
+- leave punctuation and space as is
+
+E: Hello world ! => elloHay orldway !
+
+D: input string, array to store each word, space, punctuation
+
+A:
+Initialize a finalString variable assing to []
+Split the input string by space (words, punctuation)
+Iterate over the array 
+- Initialize a var, called ending assing to 'ay'
+- For each word, extract the first char and check if it is a letter 
+    assign firstLetter variable to word index 0
+    assign newWord to word + firstLetter + ending
+  yes - append it to the end and add ending (ay)
+  no - append it to finalString as is
+- push the newWord to finalString
+Return the finalString as a string
+
+*/
+
+function pigIt(str) {
+  let finalString = [];
+  let strArray = str.split(" ");
+
+  strArray.forEach((word) => {
+    let ending = "ay";
+    let newWord = "";
+    let firstLetter = word[0];
+    let restOfWord = word.slice(1);
+
+    if (firstLetter.toLowerCase() >= "a" && firstLetter.toLowerCase() <= "z") {
+      newWord = restOfWord + firstLetter + ending;
+    } else {
+      newWord = word;
+    }
+    finalString.push(newWord);
+  });
+  return finalString.join(" ");
+}
+
+console.log(pigIt("Pig latin is cool")); // igPay atinlay siay oolcay
+console.log(pigIt("Hello world !")); // elloHay orldway !
