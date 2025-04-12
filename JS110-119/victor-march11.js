@@ -6,81 +6,46 @@ rules:
 - if no such slice exist, return an empty array
 
 E:
-
 D: Array
-
 A:
-Variables: 
-- keep track of current start of slice, assign to 0 initially
-- keep track of slice length when consecutive slice is found
-- have a maxLength to compare curr length of slice
-- keep track of currSlice and maxSlice arrays
-
+Initialize currSlice, maxSlice, assign to []
 Iterate over the array
-- assign currStart to 0
-- check if currNum is equal to prevNum
-  - get currentSlice which is currStart to idx + 1 (?)
-  - get currSliceLength, if it is greater than  maxSliceLength
-    - reassign maxSliceLength equal to currSliceLength
-    - reassign maxSlice equal to currSlice
-- else,
-  currStart is equal to idx    
-- return maxSlice    
-
+- if index is 0 or if currNum is equal to prevNum
+  - append currNum to currSlice
+    - check if currSlice is greater than maxSlice
+      - yes: reassign maxSlice to currSlice
+- else start a new sequence
+  - set currSlice to equal currNum      
+if maxSlice's length is at least 2
+return maxSlice else return empty array
 */
 
-// function longestEqualSlice(arr) {
-//   let currStart = 0;
-//   let currLength = 0;
-//   let maxLength = 1;
-//   let maxSlice = [];
-
-//   for (let idx = 1; idx < arr.length; idx++) {
-//     let currNum = arr[idx];
-//     let prevNum = arr[idx - 1];
-
-//     if (currNum === prevNum) {
-//       let currSlice = arr.slice(currStart, idx + 1);
-//       currLength = idx - currStart + 1;
-//       if (currLength > maxLength) {
-//         maxLength = currLength;
-//         maxSlice = currSlice;
-//       }
-//     } else {
-//       currStart = idx;
-//     }
-//   }
-//   return maxSlice;
-// }
-
 function longestEqualSlice(arr) {
-  let currStart = 0;
-  // let currLength = 0;
-  // let maxLength = 1;
   let maxSlice = [];
+  let currSlice = [];
 
-  for (let idx = 1; idx < arr.length; idx++) {
+  for (let idx = 0; idx < arr.length; idx++) {
     let currNum = arr[idx];
     let prevNum = arr[idx - 1];
 
-    if (currNum === prevNum) {
-      let currSlice = arr.slice(currStart, idx + 1);
-      // currLength = idx - currStart + 1;
+    if (idx === 0 || currNum === prevNum) {
+      currSlice.push(currNum);
+
       if (currSlice.length > maxSlice.length) {
-        // maxLength = currLength;
         maxSlice = currSlice;
       }
     } else {
-      currStart = idx;
+      currSlice = [currNum];
     }
   }
-  return maxSlice;
+  return maxSlice.length >= 2 ? maxSlice : [];
 }
+
 // Test cases
-// console.log(longestEqualSlice([1, 1, 1, 2, 3, 3])); // [1, 1, 1]
-// console.log(longestEqualSlice([2, 3, 4, 4, 5])); // [4, 4]
-// console.log(longestEqualSlice([1, 2, 3, 4])); // []
-// console.log(longestEqualSlice([5, 5, 5, 5])); // [5, 5, 5, 5]
+console.log(longestEqualSlice([1, 1, 1, 2, 3, 3])); // [1, 1, 1]
+console.log(longestEqualSlice([2, 3, 4, 4, 5])); // [4, 4]
+console.log(longestEqualSlice([1, 2, 3, 4])); // []
+console.log(longestEqualSlice([5, 5, 5, 5])); // [5, 5, 5, 5]
 
 /*
 P:Write a function that returns the longest consecutive numbers that are factors of the given target number.  
@@ -106,28 +71,28 @@ Iterate over the input array
 return maxSequence       
 */
 
-function longestConsecutiveFactors(arr, target) {
-  let currSequence = [];
-  let maxSequence = [];
+// function longestConsecutiveFactors(arr, target) {
+//   let currSequence = [];
+//   let maxSequence = [];
 
-  for (let idx = 0; idx < arr.length; idx++) {
-    let currNumber = arr[idx];
+//   for (let idx = 0; idx < arr.length; idx++) {
+//     let currNumber = arr[idx];
 
-    if (target % currNumber === 0) {
-      currSequence.push(currNumber);
-      if (currSequence.length > maxSequence.length) {
-        maxSequence = currSequence;
-      }
-    } else {
-      currSequence = [];
-    }
-  }
-  return maxSequence;
-}
+//     if (target % currNumber === 0) {
+//       currSequence.push(currNumber);
+//       if (currSequence.length > maxSequence.length) {
+//         maxSequence = currSequence;
+//       }
+//     } else {
+//       currSequence = [];
+//     }
+//   }
+//   return maxSequence;
+// }
 
 // Test cases
-console.log(longestConsecutiveFactors([1, 2, 11, 12, 5, 4], 60)); // Expected: [12, 5, 4]
-console.log(longestConsecutiveFactors([1, 2, 3, 4, 5, 6], 12)); // Expected: [1, 2, 3, 4]
-console.log(longestConsecutiveFactors([10, 15, 20, 25, 30], 150)); // Expected: [10, 15]
-console.log(longestConsecutiveFactors([1, 3, 7, 9], 21)); // Expected: [1, 3, 7]
-console.log(longestConsecutiveFactors([2, 4, 6, 8, 10], 40)); // Expected: [2, 4]
+// console.log(longestConsecutiveFactors([1, 2, 11, 12, 5, 4], 60)); // Expected: [12, 5, 4]
+// console.log(longestConsecutiveFactors([1, 2, 3, 4, 5, 6], 12)); // Expected: [1, 2, 3, 4]
+// console.log(longestConsecutiveFactors([10, 15, 20, 25, 30], 150)); // Expected: [10, 15]
+// console.log(longestConsecutiveFactors([1, 3, 7, 9], 21)); // Expected: [1, 3, 7]
+// console.log(longestConsecutiveFactors([2, 4, 6, 8, 10], 40)); // Expected: [2, 4]
