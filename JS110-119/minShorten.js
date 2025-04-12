@@ -22,7 +22,7 @@ Get the string's length without spaces
 EDGE CASE: if the string's length is less than the limit, return an empty string
 
 Initialize a vowel array constant assign to vowels
-Initialize a shortenedSentence var, assing to input string
+Initialize a shortenedSentence var, assign to input string
 Iterate over the vowel array
 - while the length of the nonSpaceSentence is greater than the limit and the shortenedSentence includes the current vowel
   - get a substring of the sentence without the current vowel
